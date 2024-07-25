@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "InvincibleT1InsideBanner.png",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}
