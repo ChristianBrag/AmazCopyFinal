@@ -119,7 +119,7 @@ struct SearchResult: View {
                                                 NavigationLink {
                                                     
                                                     if results.name == "A Fera (2022)"{
-                                                    MoviesViewReal(profilePicture: profilePicture, arrayIndex: 0)
+                                                        MoviesViewReal(profilePicture: profilePicture, arrayIndex: 0)
                                                         
                                                     } else if results.name == "Aprendiz de Espiã"{
                                                         MoviesViewReal(profilePicture: profilePicture, arrayIndex: 3)
@@ -134,7 +134,7 @@ struct SearchResult: View {
                                                         MoviesViewReal(profilePicture: profilePicture, arrayIndex: 2)
                                                         
                                                     } else if results.name == "Invencível"{
-                                                  MoviesView(profilePicture: profilePicture, arrayIndex: 4)
+                                                        MoviesView(profilePicture: profilePicture, arrayIndex: 4)
                                                         
                                                     } else if results.name == "Minha Lady Jane"{
                                                         MoviesView(profilePicture: profilePicture, arrayIndex: 6)
@@ -164,61 +164,62 @@ struct SearchResult: View {
                                                                 .foregroundColor(.white)
                                                                 .font(.title)
                                                         }
-                                                }
-                                            }
-                                            
-                                            VStack(alignment: .leading) {
-                                                
-                                                Text(results.name)
-                                                    .foregroundStyle(.white)
-                                                    .fontWeight(.bold)
-                                                    .multilineTextAlignment(.leading)
-                                                
-                                                HStack() {
                                                     
-                                                    if results.classification == "l.square"{
-                                                        Image(systemName: results.classification)
-                                                            .foregroundColor(.white)
-                                                            .background(Color(.green))
+                                                    
+                                                    VStack(alignment: .leading) {
                                                         
-                                                    } else if results.classification == "14.square"{
-                                                        Image(systemName: results.classification)
-                                                            .foregroundColor(.white)
-                                                            .background(Color(.orange))
-                                                        
-                                                    } else if results.classification == "12.square"{
-                                                        Image(systemName: results.classification)
-                                                            .foregroundColor(.white)
-                                                            .background(Color(.yellow))
-                                                        
-                                                    } else if results.classification == "18.square" {
-                                                        Image(systemName: results.classification)
-                                                            .foregroundColor(.white)
-                                                            .background(Color(.black))
-                                                        
-                                                    } else if results.classification == "16.square"{
-                                                        Image(systemName: results.classification)
-                                                            .foregroundColor(.white)
-                                                            .background(Color(.red))
-                                                        
-                                                    } else {
-                                                        
-                                                        Text(results.classification)
+                                                        Text(results.name)
                                                             .foregroundStyle(.white)
-                                                            .font(.caption2)
-                                                            .background(Color(.darkGray))
-                                                            .cornerRadius(2)
-                                                            .padding(.horizontal, 1)
+                                                            .fontWeight(.bold)
+                                                            .multilineTextAlignment(.leading)
+                                                        
+                                                        HStack() {
+                                                            
+                                                            if results.classification == "l.square"{
+                                                                Image(systemName: results.classification)
+                                                                    .foregroundColor(.white)
+                                                                    .background(Color(.green))
+                                                                
+                                                            } else if results.classification == "14.square"{
+                                                                Image(systemName: results.classification)
+                                                                    .foregroundColor(.white)
+                                                                    .background(Color(.orange))
+                                                                
+                                                            } else if results.classification == "12.square"{
+                                                                Image(systemName: results.classification)
+                                                                    .foregroundColor(.white)
+                                                                    .background(Color(.yellow))
+                                                                
+                                                            } else if results.classification == "18.square" {
+                                                                Image(systemName: results.classification)
+                                                                    .foregroundColor(.white)
+                                                                    .background(Color(.black))
+                                                                
+                                                            } else if results.classification == "16.square"{
+                                                                Image(systemName: results.classification)
+                                                                    .foregroundColor(.white)
+                                                                    .background(Color(.red))
+                                                                
+                                                            } else {
+                                                                
+                                                                Text(results.classification)
+                                                                    .foregroundStyle(.white)
+                                                                    .font(.caption2)
+                                                                    .background(Color(.darkGray))
+                                                                    .cornerRadius(2)
+                                                                    .padding(.horizontal, 1)
+                                                            }
+                                                            
+                                                            Text(results.year)
+                                                                .foregroundStyle(.gray)
+                                                                .font(.caption2)
+                                                            
+                                                            Text(results.duration)
+                                                                .foregroundStyle(.gray)
+                                                                .font(.caption2)
+                                                            
+                                                        }
                                                     }
-                                                    
-                                                    Text(results.year)
-                                                        .foregroundStyle(.gray)
-                                                        .font(.caption2)
-                                                    
-                                                    Text(results.duration)
-                                                        .foregroundStyle(.gray)
-                                                        .font(.caption2)
-                                                    
                                                 }
                                             }
                                         }
@@ -251,9 +252,9 @@ struct SearchResult: View {
                     
                     ToolbarItemGroup(placement: .bottomBar) {
                         
-                        Button {
+                        NavigationLink {
                             
-                            //presentationMode.wrappedValue.dismiss()
+                            HomeView(profilePicture: profilePicture)
                             
                         } label: {
                             
@@ -307,6 +308,22 @@ struct SearchResult: View {
                 .toolbarBackground(Color.black, for: .bottomBar)
                 .toolbarBackground(.visible, for: .bottomBar)
             }
+            .toolbar {
+                ToolbarItem(placement: .topBarLeading) {
+                    
+                    NavigationLink {
+                        
+                        HomeView(profilePicture: profilePicture)
+                        
+                    } label: {
+                        
+                        Text("Cancelar")
+                            .foregroundStyle(.white)
+                    }
+                }
+            }
+            
+            .foregroundColor(.white)
             .navigationBarBackButtonHidden(true)
         }
     }

@@ -274,7 +274,7 @@ struct MoviesViewReal: View {
                             .padding(.horizontal)
                             .padding(.top, 3)
                         
-                        Text("\(moviesDetails[arrayIndex].episodes) episódios \(moviesDetails[arrayIndex].year)")
+                        Text("\(moviesDetails[arrayIndex].season) \(moviesDetails[arrayIndex].year)")
                             .foregroundColor(Color(.darkGray))
                             .padding(.horizontal)
                             .padding(.top, 3)
@@ -285,9 +285,9 @@ struct MoviesViewReal: View {
                 
                 ToolbarItemGroup(placement: .bottomBar) {
                     
-                    Button {
+                    NavigationLink {
                         
-                        presentationMode.wrappedValue.dismiss()
+                        HomeView(profilePicture: profilePicture)
                         
                     } label: {
                         

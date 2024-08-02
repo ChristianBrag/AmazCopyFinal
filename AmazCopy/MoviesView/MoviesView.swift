@@ -383,9 +383,9 @@ struct MoviesView: View {
                 
                 ToolbarItemGroup(placement: .bottomBar) {
                     
-                    Button {
+                    NavigationLink {
                         
-                        presentationMode.wrappedValue.dismiss()
+                        HomeView(profilePicture: profilePicture)
                         
                     } label: {
                         
