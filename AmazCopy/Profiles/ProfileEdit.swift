@@ -112,7 +112,7 @@ struct ProfileEdit: View {
                             if profileMocker.count >= 2 {
                                 profileMocker[1].id = 2
                             }
-                            if profileMocker.count == 3 {
+                            if profileMocker.count >= 3 {
                                 profileMocker[2].id = 3
                             }
                             presentationMode.wrappedValue.dismiss()
